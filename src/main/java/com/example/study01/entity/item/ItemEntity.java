@@ -1,5 +1,6 @@
 package com.example.study01.entity.item;
 
+import com.example.study01.domain.ItemSellStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,9 @@ public class ItemEntity {
     @Column(nullable = false)
     private int price;
 
+    @Column(nullable = false)
+    private ItemSellStatus itemSellStatus;
+
     @Column(nullable = false, name = "number")
     private int stockNumber;
 
@@ -42,6 +46,7 @@ public class ItemEntity {
                       int stockNumber,
                       String itemDetail,
                       LocalDateTime regTime,
+                      ItemSellStatus itemSellStatus,
                       LocalDateTime updateTime) {
         this.id = id;
         this.itemName = itemName;
@@ -49,6 +54,7 @@ public class ItemEntity {
         this.stockNumber = stockNumber;
         this.itemDetail = itemDetail;
         this.regTime = regTime;
+        this.itemSellStatus = itemSellStatus;
         this.updateTime = updateTime;
     }
 }
