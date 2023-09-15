@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+// 타임리프 컨트롤러
 @Controller
 public class ThymeleafController {
     @GetMapping("/thymeleaf/ex1")
