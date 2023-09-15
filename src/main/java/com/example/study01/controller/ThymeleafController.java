@@ -37,7 +37,7 @@ public class ThymeleafController {
         return "thymeleaf/ex2";
     }
 
-    @GetMapping("/ex3")
+    @GetMapping(value = {"/ex3", "/ex4"})
     public String ex3(Model model) {
 
         List<ItemDTO> itemDTOList = new ArrayList<>();
@@ -57,4 +57,5 @@ public class ThymeleafController {
         model.addAttribute("itemDTOList", itemDTOList);
         return "thymeleaf/ex3";
     }
+
 }
