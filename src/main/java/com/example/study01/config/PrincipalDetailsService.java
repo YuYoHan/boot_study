@@ -1,7 +1,5 @@
 package com.example.study01.config;
 
-import com.example.social.entity.MemberEntity;
-import com.example.social.repository.MemberRepository;
 import com.example.study01.entity.MemberEntity;
 import com.example.study01.repository.MemberRepositroy;
 import lombok.RequiredArgsConstructor;

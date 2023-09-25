@@ -1,6 +1,5 @@
 package com.example.study01.config;
 
-import com.example.social.entity.MemberEntity;
 import com.example.study01.entity.MemberEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
