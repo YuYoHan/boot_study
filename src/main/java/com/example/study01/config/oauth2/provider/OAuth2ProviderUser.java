@@ -7,7 +7,6 @@ import java.util.Map;
 
 
 public abstract class OAuth2ProviderUser implements OAuth2UserInfo{
-
     private Map<String, Object> attributes;
     private OAuth2User oAuth2User;
     private ClientRegistration clientRegistration;
@@ -35,5 +34,4 @@ public abstract class OAuth2ProviderUser implements OAuth2UserInfo{
     public Map<String, Object> getAttributes() {
         return attributes;
     }
-
 }

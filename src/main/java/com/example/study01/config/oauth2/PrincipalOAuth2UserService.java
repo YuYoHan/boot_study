@@ -60,6 +60,7 @@ public class PrincipalOAuth2UserService implements OAuth2UserService<OAuth2UserR
             log.info("구글 로그인");
             oAuth2UserInfo = new GoogleUser(oAuth2User, clientRegistration);
         } else if(registrationId.equals("naver")) {
+            log.info("네이버 로그인");
             oAuth2UserInfo = new NaverUser(oAuth2User, clientRegistration);
         } else {
             log.error("지언하지 않는 소셜 로그인입니다.");

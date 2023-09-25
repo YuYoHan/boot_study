@@ -1,5 +1,6 @@
 package com.example.study01.entity;
 
+import com.example.study01.domain.TokenDTO;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,12 +21,24 @@ public class TokenEntity {
     private String grantType;
     private String accessToken;
     private String refreshToken;
+    private String memberEmail;
 
     @Builder
-    public TokenEntity(Long id, String grantType, String accessToken, String refreshToken) {
+    public TokenEntity(Long id, String grantType, String accessToken, String refreshToken,String memberEmail) {
         this.id = id;
         this.grantType = grantType;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
+        this.memberEmail = memberEmail;
+    }
+
+    public static TokenEntity toTokenEntity(TokenDTO token) {
+        return TokenEntity.builder()
+                .id(token.getId())
+                .grantType(token.getGrantType())
+                .accessToken(token.getAccessToken())
+                .refreshToken(token.getRefreshToken())
+                .memberEmail(token.getMemberEmail())
+                .build();
     }
 }

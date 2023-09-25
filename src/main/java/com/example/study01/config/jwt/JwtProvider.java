@@ -67,6 +67,7 @@ public class JwtProvider {
                 .grantType("Bearer ")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .memberEmail(authentication.getName())
                 .build();
 
         log.info("tokenDTO in JwtProvider : " + tokenDTO);
@@ -109,13 +110,12 @@ public class JwtProvider {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
-        TokenDTO tokenDTO = TokenDTO.builder()
+        return TokenDTO.builder()
                 .grantType("Bearer ")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .memberEmail(memberEmail)
                 .build();
-
-        return tokenDTO;
     }
 
     public Authentication getAuthentication(String token) {
