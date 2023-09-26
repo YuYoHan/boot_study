@@ -3,7 +3,6 @@ spring:
     include:
       - jwt
       - oauth
-      - s3
       - test
 
   devtools:
