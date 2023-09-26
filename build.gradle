@@ -50,7 +50,10 @@ dependencies {
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     // thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation group: 'com.google.api-client', name: 'google-api-client-jackson2', version: '1.30.10'
+    // google api : 구글 accessToken 검증 api
+    implementation 'com.google.api-client:google-api-client:1.31.1' // 최신 버전 확인
+    implementation 'com.google.oauth-client:google-oauth-client:1.32.1' // 최신 버전 확인
+    implementation 'com.google.http-client:google-http-client-gson:1.39.2' // 최신 버전 사용
 }
 
 tasks.named('test') {
