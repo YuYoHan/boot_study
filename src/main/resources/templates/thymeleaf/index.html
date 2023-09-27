@@ -12,31 +12,5 @@
 <!-- 이걸 클릭하면 https://nid.naver.com/oauth2.0/authorize 여기로 보내짐-->
 <a id="naver-login" href="/oauth2/authorization/naver">네이버 로그인</a>
 
-<script>
-    // URL 파라미터에서 accessToken 추출
-    const urlParams = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = urlParams.get('access_token');
-
-    let xhr = new XMLHttpRequest();
-    let url = "/api/v1/user/success";
-
-    xhr.open('GET', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                // 서버로부터 성공적인 응답을 받았을 때 수행할 작업
-                console.log('토큰이 성공적으로 전송되었습니다.');
-            } else {
-                // 서버로부터 오류 응답을 받았을 때 수행할 작업
-                console.error('토큰 전송 중 오류가 발생했습니다.');
-            }
-        }
-    };
-
-    xhr.send();
-</script>
 </body>
 </html>

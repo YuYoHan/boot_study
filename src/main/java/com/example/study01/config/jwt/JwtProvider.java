@@ -74,8 +74,7 @@ public class JwtProvider {
         return tokenDTO;
     }
 
-
-
+    // 소셜 로그인 JWT
     public TokenDTO createTokenForOAuth2(String memberEmail,
                                          List<GrantedAuthority> authorities) {
         log.info("email in JwtProvicer : " + memberEmail);

@@ -49,9 +49,10 @@ dependencies {
     // thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     // google api : 구글 accessToken 검증 api
-    implementation 'com.google.api-client:google-api-client:1.31.1' // 최신 버전 확인
+    implementation 'com.google.api-client:google-api-client:1.32.1' // 최신 버전 확인
     implementation 'com.google.oauth-client:google-oauth-client:1.32.1' // 최신 버전 확인
-    implementation 'com.google.http-client:google-http-client-gson:1.39.2' // 최신 버전 사용
+    // https://mvnrepository.com/artifact/com.google.http-client/google-http-client-jackson2
+    implementation group: 'com.google.http-client', name: 'google-http-client-jackson2', version: '1.43.3'
 }
 
 tasks.named('test') {
