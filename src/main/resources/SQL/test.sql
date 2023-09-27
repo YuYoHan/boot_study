@@ -1,1 +1,4 @@
-use web0315;
+create database tst;
+use tst;
+
+select * from member;
