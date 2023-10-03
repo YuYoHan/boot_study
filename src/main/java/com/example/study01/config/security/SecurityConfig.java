@@ -2,6 +2,7 @@ package com.example.study01.config.security;
 
 import com.example.study01.config.jwt.JwtProvider;
 import com.example.study01.config.jwt.JwtSecurityConfig;
+import com.example.study01.config.oauth2.OAuth2SuccessHandler;
 import com.example.study01.config.oauth2.PrincipalOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,7 @@ public class SecurityConfig {
 
     private final JwtProvider jwtProvider;
     private final PrincipalOAuth2UserService principalOauth2UserService;
+    private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -48,7 +50,9 @@ public class SecurityConfig {
                 // OAuth2 로그인 성공 이후 사용자 정보를 가져올 때 설정 담당
                 .userInfoEndpoint()
                 // OAuth2 로그인 성공 시, 후작업을 진행할 서비스
-                .userService(principalOauth2UserService);
+                .userService(principalOauth2UserService)
+                .and()
+                .successHandler(oAuth2SuccessHandler);
 
         return http.build();
     }
