@@ -1,5 +1,7 @@
 package com.example.study01.config.security;
 
+import com.example.study01.config.jwt.JwtAccessDenieHandler;
+import com.example.study01.config.jwt.JwtAuthenticationEntryPoint;
 import com.example.study01.config.jwt.JwtProvider;
 import com.example.study01.config.jwt.JwtSecurityConfig;
 import com.example.study01.config.oauth2.OAuth2SuccessHandler;
@@ -43,6 +45,12 @@ public class SecurityConfig {
                 // JWT Token을 위한 Filter를 아래에서 만들어 줄건데,
                 // 이 Filter를 어느위치에서 사용하겠다고 등록을 해주어야 Filter가 작동이 됩니다.
                 .apply(new JwtSecurityConfig(jwtProvider));
+
+        // 에러 방지
+        http
+                .exceptionHandling()
+                .authenticationEntryPoint(new JwtAuthenticationEntryPoint())
+                .accessDeniedHandler(new JwtAccessDenieHandler());
 
         http
                 // oauth2Login() 메서드는 OAuth 2.0 프로토콜을 사용하여 소셜 로그인을 처리하는 기능을 제공합니다.
